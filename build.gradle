@@ -14,10 +14,24 @@ apply plugin: 'idea'
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
+    maven { url "http://$mavenIp:8081/nexus/content/groups/public" }
+    // Use 'jcenter' for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
+    compile group: 'org.apache.lucene', name: 'lucene-core', version: '6.6.0'
+    compile group: 'org.apache.lucene', name: 'lucene-queryparser', version: '6.6.0'
+    compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '6.6.0'
+    compile group: 'org.apache.lucene', name: 'lucene-analyzers', version: '3.6.2'
+    compile group: 'org.apache.lucene', name: 'lucene-queries', version: '6.6.0'
+    compile group: 'org.apache.lucene', name: 'lucene-highlighter', version: '6.6.0'
+    testCompile group: 'org.apache.lucene', name: 'lucene-test-framework', version: '6.6.0'
+
+
+    testCompile 'junit:junit:4.12'
 }
 
